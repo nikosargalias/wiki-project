@@ -1,0 +1,82 @@
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Getting Started
+
+### running frontend
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### running server (using docker container)
+
+-   cd into /server repository
+-   npm install
+-   docker build -t my_python_app .
+-   docker run -v .:/app -p 5003:5003 my_python_app
+
+# Documentation
+
+## Project Description
+
+This project presents a web-based document system built with Next.js and React for rendering and editing Markdown documents. The system allows users to view the history of document revisions and submit new revisions. This system aims to provide a smooth user experience for managing documents while preserving the history of changes.
+
+## Benefits of the System Design and Technologies Used
+
+This project leverages numerous solid system design principles, making it both scalable and maintainable.
+
+Firstly, the project employs a well-structured and intuitive folder structure. This good practice is essential for codebase clarity and easier navigation, especially in larger projects with several components and modules. Files are organized by their functionality, with a clear distinction between pages, components, and utilities, which makes it easy for developers to locate specific pieces of code.
+
+Secondly, the project adheres to the principle of modularity, dividing the application into small, self-contained modules. Each component is designed to do a single task effectively, reducing complexity and improving reusability. This approach allows easy addition, replacement, or modification of individual modules, making the system scalable and easier to understand and maintain.
+
+Furthermore, the project divides components into core and shared categories. Core components handle specific, application-related tasks, whereas shared components are general-purpose, reusable across different parts of the application. This separation helps to maintain a clean, organized codebase and promotes the reuse of components, enhancing code maintainability and efficiency.
+
+Each component is designed to be stateless as much as possible, receiving data through props and emitting changes via events. This design principle decouples the component's behavior from its state, making it more predictable, easier to test, and can be used in different contexts.
+
+Additionally, for projects of a larger scale managing substantial shared state, a centralized state management solution such as React Context or Redux becomes a more appropriate choice. While this project uses component-level state management via React's useState and useEffect hooks, more complex applications can benefit from a unified, predictable state container.
+
+## Good Patterns Used and Why
+
+### Modular design
+
+The use of functional components along with React Hooks makes the code more modular, readable and easier to test and debug. It also reduces the chances of bugs related to this keyword and lifecycle methods.
+
+### Separation of Concerns
+
+The application logic is separated into distinct components and utility functions, each responsible for a single concern. This separation of concerns makes the code easier to understand, test, and maintain.
+
+### Mocking for Testing
+
+Mocking external modules and dependencies during testing ensures that tests run quickly and aren't affected by the reliability of external systems.This waas used to ensure stability within the tests.
+
+## Suggestions for Future Improvements
+
+### Error handling
+
+The project incorporates basic error handling, which is crucial for any production-level application. However, for a more resilient application, it's recommended to use a global error handling strategy. This can be accomplished with React Error Boundaries, which are components designed to catch JavaScript errors anywhere in their child component tree. These boundaries log the errors and display a fallback UI, providing a smooth user experience even when something goes wrong.
+
+In addition to the localized error handling, errors can be reported to an error logging service such as Azure Application Insights. This robust application performance management service is part of Azure Monitor and can help monitor the application's live performance, detect anomalies, and collect data about application usage, availability, and errors. Incorporating such a service ensures better visibility into the application's performance and any occurring errors, making the application not only more resilient but also more maintainable and monitorable.
+
+### Testing Coverage
+
+While there are some tests implemented, and I focused on testing the [id] file thoroughly, increasing testing coverage, including more edge cases and error states would lead to a more reliable application. I would also ensure we have strong e2e tests, covering the entire application from a user experience point of view. Finally, I would aim to have 100% test coverage for all endpoints, ensuring mocks are provided by the API, and used inside mock handlers for tests which assert on the request response cycle of each endpoint.
+
+### UI/UX Improvements
+
+The interface could be made more intuitive and user-friendly. A modern CSS framework of paradigm can be used, options such as CSS modules, Styled Components, or perhaps a UI library such as ChakraUI. The current UI is quite basic and there's a lot of room for improvements. Ideally, keeping components small, reusable modules with themes / styles in place is the ideal approach to maintin scallability and modularity.
+
+### Optimize Data Fetching
+
+Data fetching could be optimized by only re-fetching data when necessary, using pagination for long lists of revisions, and implementing caching. Catching could be implemented with something such as react query or SWR.
+
+### Implementing Authentication
+
+Currently, there is no authentication system in place. Implementing an authentication and authorization system would allow for user-specific documents and revisions, and would improve the security of the application.
