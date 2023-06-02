@@ -1,8 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-### running frontend
+## running frontend
 
 First, run the development server:
 
@@ -16,7 +12,7 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### running server (using docker container)
+## running server (using docker container)
 
 -   cd into /server repository
 -   npm install
@@ -72,6 +68,24 @@ While there are some tests implemented, and I focused on testing the [id] file t
 ### UI/UX Improvements
 
 The interface could be made more intuitive and user-friendly. A modern CSS framework of paradigm can be used, options such as CSS modules, Styled Components, or perhaps a UI library such as ChakraUI. The current UI is quite basic and there's a lot of room for improvements. Ideally, keeping components small, reusable modules with themes / styles in place is the ideal approach to maintin scallability and modularity.
+
+## Accessibility Improvements
+
+In any application, it's crucial that all users, regardless of ability or disability, have an equally enjoyable and efficient user experience. Given more time, I would focus on enhancing the accessibility of this project by paying attention to the following aspects:
+
+-   Semantic HTML: Strengthen the use of semantic HTML tags to ensure a clear and coherent structure of the content. This would improve how assistive technologies like screen readers interpret the content.
+
+-   Keyboard Navigation: Implement full keyboard navigability across the site. Ensuring that every feature can be accessed using the keyboard alone would be beneficial for users who can't or prefer not to use a mouse.
+
+-   Contrast Ratio: ensure text-to-background contrast ratios across the application meet WCAG standards.
+
+-   Accessible Forms: Associate form labels explicitly with their respective elements. Provide clear and specific error and success messages for form interactions.
+
+-   Dynamic Content Updates: changes to content, particularly dynamic ones, are announced to the user or are readable by screen readers, making the site more usable for those using assistive technologies.
+
+-   ARIA Attributes: Extend the use of ARIA (Accessible Rich Internet Applications) attributes to provide extra context and make navigation easier for those using assistive technologies.
+
+-   Accessibility Auditing: Regular audits with accessibility tools such as Lighthouse and Axe to identify and fix potential issues would be an ongoing effort. This can be automated with an e2e testing suite such as Cypress.
 
 ### Optimize Data Fetching
 
