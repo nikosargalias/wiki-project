@@ -17,7 +17,10 @@ export default function HomePage() {
             <h1>Documents</h1>
             {data.titles.map((title: string) => (
                 <div key={title}>
-                    <Link href={`/document/${encodeURIComponent(title)}`}>
+                    <Link
+                        // style={{ color: 'lightBlue' }}
+                        href={`/document/${encodeURIComponent(title)}`}
+                    >
                         {title}
                     </Link>
                 </div>
